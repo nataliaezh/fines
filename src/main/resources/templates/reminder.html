@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Notification</title>
+
+
+    <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Получатель: </h1> <h2 th:text="${name}"> </h2> <h2 th:text="${lastname}"> </h2>
+    <!-- <span th:text="${name}"></span>  <span th:text="${lastname}"></span>-->
+    <span th:text="${letter}"  > </span>
+    <span th:text="${sum}"> </span> <span>рублей </span>
+</div>
+</body>
+</html>

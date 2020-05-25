@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Debtors</title>
+</head>
+<body>
+<div th:replace="~{navigation :: navigation(Debtors)}"/>
+
+
+<h1>Список должников</h1>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Сумма задолженности</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="debtor : ${debtors}">
+        <td th:text="${debtor.id}"/>
+        <td th:text="${debtor.firstname}"/>
+        <td th:text="${debtor.lastname}"/>
+        <td th:text="${debtor.sumdebt}"/>
+        <td>
+            <a th:href="@{'/debtors/selectnotification?id=' + ${debtor.id}}">Выбрать первичное уведомление</a>
+        </td>
+        <td>
+        <a th:href="@{'/debtors/selectreminder?id=' + ${debtor.id}}">Выбрать напоминание</a>
+    </td>
+        <td>
+            <a th:href="@{'/debtors/selectfine?id=' + ${debtor.id}}">Выбрать штраф</a>
+        </td>
+         </tr>
+    </tbody>
+</table>
+
+<br>
+
+<h1>Сгенерировать бланки документов</h1>
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Сумма задолженности</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="debtor : ${debtors}">
+        <td th:text="${debtor.id}"/>
+        <td th:text="${debtor.firstname}"/>
+        <td th:text="${debtor.lastname}"/>
+        <td th:text="${debtor.sumdebt}"/>
+        <td>
+            <a th:href="@{'/debtors/documentationnotification?id=' + ${debtor.id}}">Сгенерировать бланк уведомления</a>
+        </td>
+        <td>
+            <a th:href="@{'/debtors/documentationreminder?id=' + ${debtor.id}}">Сгенерировать бланк напоминания</a>
+        </td>
+        <td>
+            <a th:href="@{'/debtors/documentationfine?id=' + ${debtor.id}}">Сгенерировать бланк штрафного уведомления</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

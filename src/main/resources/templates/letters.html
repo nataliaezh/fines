@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Templates</title>
+</head>
+
+<body>
+<div th:replace="~{navigation :: navigation(Templates)}"/>
+
+<h1>Перечень шаблонов</h1>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Наименование</th>
+        <th>Текст письма</th>
+     <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="letter : ${letters}">
+        <td th:text="${letter.id}"/>
+        <td th:text="${letter.title}"/>
+        <td th:text="${letter.content}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
